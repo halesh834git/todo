@@ -1,0 +1,40 @@
+<html>
+  <body>
+      <h3 *ngIf="isLogged">ToDo List</h3>
+
+
+    <div class="row" *ngIf="isLogged">
+      <div class="col col-md-8">
+    
+      </div>
+      <div class="col col-md-4">
+        <button class="btn btn-xs btn-info" routerLink='todo/todo-add'>Add New</button>
+      </div>
+    </div>
+    <br/>
+    <br/>
+    <table class="table table-bordered table-hover table-stripped" *ngIf="isLogged">
+      <tr>
+        <th style="width: 30px">Status</th>
+        <th>Title</th>
+        <th>Notes</th>
+        <th>Due Date</th>
+        <th>Action</th>
+      </tr>
+      <tr *ngFor="let todo of todos">
+        <td><img (click)="onStatusChange(todo.Id)" [src]="todo.IsCompleted ? '/assets/checked.png' : '/assets/pending.png'" /></td>
+        <td>{{todo.Title}}</td>
+        <td>{{todo.Notes}}</td>
+        <td>{{todo.DueDate | date: 'dd-MMM-yyyy'}}</td>
+        <td>
+          <button class="btn btn-xs btn-warning" routerLink='todo/todo-edit' [queryParams]='{id: todo.Id}'>Edit</button>
+          <button class="btn btn-xs btn-danger" (click)="OnDelete(todo.Id)">Delete</button>
+        </td>
+      </tr>
+    </table>
+    <div  *ngIf="!isLogged" style="align-self: center">
+        <button class="btn btn-info" (click)="onLogIn()">You must login first</button>
+    </div>
+  </body>
+</html>
+

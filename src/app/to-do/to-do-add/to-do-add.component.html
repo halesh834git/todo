@@ -1,0 +1,33 @@
+<h3>Add ToDo</h3>
+<br />
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form id="addToDoForm" #addForm="ngForm" novalidate="novalidate">
+      <div class="row">
+        <label for="Title">Title</label>
+        <div>
+          <input class="form-control" type="text" id="Title" name="Title" [(ngModel)]="todo.Title" placeholder="Enter a title" required/>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <label for="Notes">Notes</label>
+        <div>
+          <input class="form-control" type="text" id="Notes" name="Notes" [(ngModel)]="todo.Notes" placeholder="Enter a note" required/>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <label for="DueDate">DueDate</label>
+        <div>
+          <input class="form-control" type="date" id="DueDate" name="DueDate" [(ngModel)]="todo.DueDate" placeholder="Pick a date" required/>
+        </div>
+      </div>
+      <br />
+
+      <button type="button" [disabled]="!addForm.form.valid" [title]="!addForm.form.valid ? 'Please fill all details' : 'Click to save'" class="btn btn-success" (click)="onSave()">Save</button>
+    </form>
+  </div>
+</div>
+<br />
+<button class="btn btn-xs btn-info" (click)="OnBackToList()">Back to List</button>

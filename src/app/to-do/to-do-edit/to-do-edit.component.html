@@ -1,0 +1,37 @@
+<h3>Edit ToDo</h3>
+<br />
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form id="editToDoForm" #editForm="ngForm" novalidate="novalidate">
+      <div class="row">
+        <label for="Title">Title</label>
+        <div>
+          <input class="form-control" type="text" id="Title" name="Title" placeholder="Enter a title" [(ngModel)]="todo.Title" required/>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <label for="Notes">Notes</label>
+        <div>
+          <input class="form-control" type="text" id="Notes" name="Notes" placeholder="Enter a note" [(ngModel)]="todo.Notes" required/>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <label for="DueDate">DueDate</label>
+        <div>
+          <input class="form-control" type="date" id="DueDate" name="DueDate" placeholder="Pick a date" [(ngModel)]="todo.DueDate" required/>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <label for="IsCompleted">Is Completed</label>
+        <input type="checkbox" id="IsCompleted" name="IsCompleted" [(ngModel)]="todo.IsCompleted"/>
+      </div>
+      <br />
+      <button type="button" class="btn btn-success" [disabled]="!editForm.form.valid" (click)="onSave()">Save</button>
+    </form>
+  </div>
+</div>
+<br />
+<button class="btn btn-xs btn-info" (click)="OnBackToList()">Back to List</button>

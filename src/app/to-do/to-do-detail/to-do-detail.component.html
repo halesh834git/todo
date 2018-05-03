@@ -1,0 +1,21 @@
+<table class="table table-bordered table-hover table-stripped">
+  <tr>
+      <td>Title</td>
+      <td>{{todo.Title}}</td>
+  </tr>
+  <tr>
+      <td>Notes</td>
+      <td>{{todo.Notes}}</td>
+  </tr>
+  <tr>
+      <td>Date</td>
+      <td>{{todo.DueDate | date: 'dd-MMM-yyyy'}}</td>
+  </tr>
+  <tr>
+      <td>Is Complete</td>
+      <td>{{todo.IsCompleted ? 'Yes' : 'No'}}</td>
+  </tr>
+</table>
+
+<br />
+<button class="btn btn-xs btn-info" (click)="OnBackToList()">Back to List</button>
